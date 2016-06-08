@@ -53,6 +53,21 @@ public class ForecastFragment extends Fragment implements LoaderManager.LoaderCa
     private static final String SELECTED_KEY = "selected_position";
 
     private static final int FORECAST_LOADER = 0;
+
+    @Override
+    public void onResume() {
+        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        sp.registerOnSharedPreferenceChangeListener(this);
+        super.onResume();
+    }
+
+    @Override
+    public void onPause() {
+        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        sp.unregisterOnSharedPreferenceChangeListener(this);
+        super.onPause();
+    }
+
     // For the forecast view we're showing only a small subset of the stored data.
     // Specify the columns we need.
     private static final String[] FORECAST_COLUMNS = {
@@ -84,6 +99,13 @@ public class ForecastFragment extends Fragment implements LoaderManager.LoaderCa
     static final int COL_WEATHER_CONDITION_ID = 6;
     static final int COL_COORD_LAT = 7;
     static final int COL_COORD_LONG = 8;
+
+    @Override
+    public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
+        if(key.equals(getString(R.string.pref_location_status_key))){
+            updateEmptyView();
+        }
+    }
 
     /**
      * A callback interface that all activities containing this fragment must
@@ -324,5 +346,4 @@ public class ForecastFragment extends Fragment implements LoaderManager.LoaderCa
             updateEmptyView();
         }
     }
-
 }

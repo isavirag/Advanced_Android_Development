@@ -242,11 +242,12 @@ public class DetailFragment extends Fragment implements LoaderManager.LoaderCall
             mWindView.setContentDescription(getString(R.string.a11y_wind, mWindView.getText()));
             mWindLabelView.setContentDescription(mWindView.getContentDescription());
 
-            // Read pressure from cursor and update view
+        // Read pressure from cursor and update view
             float pressure = data.getFloat(COL_WEATHER_PRESSURE);
             mPressureView.setText(getString(R.string.format_pressure, pressure));
             mPressureView.setContentDescription(getString(R.string.a11y_pressure, mPressureView.getText()));
             mPressureLabelView.setContentDescription(mPressureView.getContentDescription());
+            mPressureView.setText(getActivity().getString(R.string.format_pressure, pressure));
 
             // We still need this for the share intent
             mForecast = String.format("%s - %s - %s/%s", dateText, description, high, low);

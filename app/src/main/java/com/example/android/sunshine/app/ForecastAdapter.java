@@ -92,18 +92,18 @@ public class ForecastAdapter extends CursorAdapter {
         ViewHolder viewHolder = (ViewHolder) view.getTag();
         int weatherId = cursor.getInt(ForecastFragment.COL_WEATHER_CONDITION_ID);
         int fallbackIconId;
-        int viewType = getItemViewType(cursor.getPosition());
+
         switch (viewType) {
             case VIEW_TYPE_TODAY: {
                 // Get weather icon
-                fallbackIconId = Utility.getArtResourceForWeatherCondition(
-                        weatherId);
+                fallbackIconId = Utility.getArtResourceForWeatherCondition(weatherId);
                 break;
             }
             default: {
                 // Get weather icon
-                fallbackIconId = Utility.getIconResourceForWeatherCondition(
-                        weatherId);
+                fallbackIconId = Utility.getIconResourceForWeatherCondition(weatherId);
+                viewHolder.iconView.setImageResource(Utility.getIconResourceForWeatherCondition(
+                        cursor.getInt(ForecastFragment.COL_WEATHER_CONDITION_ID)));
                 break;
             }
         }
@@ -125,9 +125,8 @@ public class ForecastAdapter extends CursorAdapter {
         viewHolder.descriptionView.setText(description);
         viewHolder.descriptionView.setContentDescription(context.getString(R.string.a11y_forecast, description));
 
-        // For accessibility, we don't want a content description for the icon field
-        // because the information is repeated in the description view and the icon
-        // is not individually selectable
+        // Read user preference for metric or imperial temperature units
+        boolean isMetric = Utility.isMetric(context);
 
         // Read high temperature from cursor
         String high = Utility.formatTemperature(
@@ -135,9 +134,11 @@ public class ForecastAdapter extends CursorAdapter {
         viewHolder.highTempView.setText(high);
         viewHolder.highTempView.setContentDescription(context.getString(R.string.a11y_high_temp, high));
 
+
         // Read low temperature from cursor
         String low = Utility.formatTemperature(
                 context, cursor.getDouble(ForecastFragment.COL_WEATHER_MIN_TEMP));
+
         viewHolder.lowTempView.setText(low);
         viewHolder.lowTempView.setContentDescription(context.getString(R.string.a11y_low_temp, low));
     }

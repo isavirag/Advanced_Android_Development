@@ -60,6 +60,16 @@ public class SunshineSyncAdapter extends AbstractThreadedSyncAdapter {
     private static final long DAY_IN_MILLIS = 1000 * 60 * 60 * 24;
     private static final int WEATHER_NOTIFICATION_ID = 3004;
 
+    @Retention(RetentionPolicy.SOURCE)
+    @IntDef({LOCATION_STATUS_OK, LOCATION_STATUS_SERVER_DOWN, LOCATION_STATUS_SERVER_INVALID,
+            LOCATION_STATUS_UNKNOWN, LOCATION_STATUS_INVALID})
+    public @interface LocationStatus {}
+    public static final int LOCATION_STATUS_OK = 0;
+    public static final int LOCATION_STATUS_SERVER_DOWN = 1;
+    public static final int LOCATION_STATUS_SERVER_INVALID = 2;
+    public static final int LOCATION_STATUS_UNKNOWN = 3;
+    public static final int LOCATION_STATUS_INVALID = 4;
+
 
     private static final String[] NOTIFY_WEATHER_PROJECTION = new String[] {
             WeatherContract.WeatherEntry.COLUMN_WEATHER_ID,
@@ -410,6 +420,7 @@ public class SunshineSyncAdapter extends AbstractThreadedSyncAdapter {
                         Log.e(LOG_TAG, "Error retrieving large icon from " + artUrl, e);
                         largeIcon = BitmapFactory.decodeResource(resources, artResourceId);
                     }
+
                     String title = context.getString(R.string.app_name);
 
                     // Define the text of the forecast.
@@ -607,7 +618,7 @@ public class SunshineSyncAdapter extends AbstractThreadedSyncAdapter {
      * @param c Context to get the PreferenceManager from.
      * @param locationStatus The IntDef value to set
      */
-    static private void setLocationStatus(Context c, @LocationStatus int locationStatus){
+    static private void setLocationStatus(Context c, @LocationStatus int locationStatus) {
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(c);
         SharedPreferences.Editor spe = sp.edit();
         spe.putInt(c.getString(R.string.pref_location_status_key), locationStatus);

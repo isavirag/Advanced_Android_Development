@@ -29,9 +29,9 @@
         android:background="@android:color/white" />
 
     <include layout="@layout/detail_today_grid"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="3"/>
+             android:layout_width="match_parent"
+             android:layout_height="0dp"
+             android:layout_weight="3"/>
 
     <android.support.v7.widget.GridLayout
         android:id="@+id/detail_additional_pane"

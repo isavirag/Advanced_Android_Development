@@ -28,6 +28,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 public class LocationEditTextPreference extends EditTextPreference {
+
     static final private int DEFAULT_MINIMUM_LOCATION_LENGTH = 2;
     private int mMinLength;
 
@@ -38,7 +39,8 @@ public class LocationEditTextPreference extends EditTextPreference {
                 R.styleable.LocationEditTextPreference,
                 0, 0);
         try {
-            mMinLength = a.getInteger(R.styleable.LocationEditTextPreference_minLength, DEFAULT_MINIMUM_LOCATION_LENGTH);
+            mMinLength = a.getInteger(R.styleable.LocationEditTextPreference_minLength,
+                    DEFAULT_MINIMUM_LOCATION_LENGTH);
         } finally {
             a.recycle();
         }

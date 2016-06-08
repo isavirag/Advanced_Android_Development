@@ -323,6 +323,7 @@ public class Utility {
         }
         return -1;
     }
+<<<<<<< 727ddbe8380bd5675d21838e08005ae91288c985
 
     /**
      * Helper method to provide the string according to the weather
@@ -538,5 +539,17 @@ public class Utility {
         SharedPreferences.Editor spe = sp.edit();
         spe.putInt(c.getString(R.string.pref_location_status_key), SunshineSyncAdapter.LOCATION_STATUS_UNKNOWN);
         spe.apply();
+    }
+
+    public static boolean isDeviceConnected(Context context){
+
+        ConnectivityManager cm =
+                (ConnectivityManager)context.getSystemService(Context.CONNECTIVITY_SERVICE);
+
+        NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+        boolean isConnected = activeNetwork != null &&
+                activeNetwork.isConnectedOrConnecting();
+
+        return isConnected;
     }
 }
