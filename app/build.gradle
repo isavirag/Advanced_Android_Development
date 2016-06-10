@@ -30,7 +30,12 @@ dependencies {
     //glide
     compile 'com.github.bumptech.glide:glide:3.7.0'
     compile 'com.android.support:support-v4:19.1.0'
+
+    //Google Play Services
+    compile "com.google.android.gms:play-services-gcm:9.0.0"
 }
+
+apply plugin: 'com.google.gms.google-services'
 
 repositories {
     mavenCentral() // jcenter() works as well because it pulls from Maven Central
