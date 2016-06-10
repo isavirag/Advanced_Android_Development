@@ -206,14 +206,9 @@ public class DetailFragment extends Fragment implements LoaderManager.LoaderCall
 
             // Get description from weather condition ID
             String description = Utility.getStringForWeatherCondition(getActivity(), weatherId);
+
             mDescriptionView.setText(description);
             mDescriptionView.setContentDescription(getString(R.string.a11y_forecast, description));
-
-            // For accessibility, add a content description to the icon field. Because the ImageView
-            // is independently focusable, it's better to have a description of the image. Using
-            // null is appropriate when the image is purely decorative or when the image already
-            // has text describing it in the same UI component.
-            mIconView.setContentDescription(getString(R.string.a11y_forecast_icon, description));
 
             // Read high temperature from cursor and update view
             boolean isMetric = Utility.isMetric(getActivity());

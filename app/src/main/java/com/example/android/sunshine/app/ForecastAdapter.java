@@ -102,8 +102,6 @@ public class ForecastAdapter extends CursorAdapter {
             default: {
                 // Get weather icon
                 fallbackIconId = Utility.getIconResourceForWeatherCondition(weatherId);
-                viewHolder.iconView.setImageResource(Utility.getIconResourceForWeatherCondition(
-                        cursor.getInt(ForecastFragment.COL_WEATHER_CONDITION_ID)));
                 break;
             }
         }

@@ -37,4 +37,5 @@
         <item>@string/pref_art_pack_sunshine</item>
         <item>@string/pref_art_pack_cute_dogs</item>
     </string-array>
+
 </resources>
