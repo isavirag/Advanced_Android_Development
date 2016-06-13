@@ -47,10 +47,20 @@ public class MainActivity extends AppCompatActivity implements ForecastFragment.
         mLocation = Utility.getPreferredLocation(this);
 
         setContentView(R.layout.activity_main);
+<<<<<<< faee8d0d00b81125c496361ff2f9bc7909514741
         Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
+||||||| merged common ancestors
+=======
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayShowTitleEnabled(false);
+        }
+
+>>>>>>> Layout_base_changes - GridLayout
         if (findViewById(R.id.weather_detail_container) != null) {
             // The detail container view will be present only in the large-screen layouts
             // (res/layout-sw600dp). If this view is present, then the activity should be

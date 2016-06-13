@@ -5,6 +5,7 @@ buildscript {
         jcenter()
     }
     dependencies {
+<<<<<<< faee8d0d00b81125c496361ff2f9bc7909514741
 <<<<<<< c7b9a26c69b89f1d37d62f3a6201bc443288771c
         classpath 'com.android.tools.build:gradle:2.1.2'
         classpath 'com.google.gms:google-services:1.3.0-beta1'
@@ -14,6 +15,11 @@ buildscript {
 
 =======
         classpath 'com.android.tools.build:gradle:2.1.0'
+||||||| merged common ancestors
+        classpath 'com.android.tools.build:gradle:2.1.0'
+=======
+        classpath 'com.android.tools.build:gradle:2.1.2'
+>>>>>>> Layout_base_changes - GridLayout
         classpath 'com.google.gms:google-services:3.0.0'
 >>>>>>> Changes up to 5.04 for GCM
         // NOTE: Do not place your application dependencies here; they belong

@@ -501,6 +501,7 @@ public class Utility {
         }
         return context.getString(stringId);
     }
+<<<<<<< faee8d0d00b81125c496361ff2f9bc7909514741
 
     /**
      * Returns true if the network is available or about to become available.
@@ -586,4 +587,16 @@ public class Utility {
         }
         return -1;
     }
+||||||| merged common ancestors
+=======
+
+    public static boolean usingLocalGraphics(Context context) {
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        String sunshineArtPack = context.getString(R.string.pref_art_pack_key);
+        return prefs.getString(context.getString(R.string.pref_art_pack_key),
+                sunshineArtPack).equals(sunshineArtPack);
+
+    }
+>>>>>>> Layout_base_changes - GridLayout
 }
