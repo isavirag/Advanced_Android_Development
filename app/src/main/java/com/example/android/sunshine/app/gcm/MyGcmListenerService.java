@@ -1,4 +1,4 @@
-package com.example.android.sunshine.app;
+package com.example.android.sunshine.app.gcm;
 
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -9,11 +9,12 @@ import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v4.app.NotificationCompat;
 import android.util.Log;
+import android.widget.Toast;
 
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.example.android.sunshine.app.MainActivity;
+import com.example.android.sunshine.app.R;
 
-public class GcmListenerService extends com.google.android.gms.gcm.GcmListenerService {
+public class MyGcmListenerService extends com.google.android.gms.gcm.GcmListenerService {
 
     private static final String TAG = "MyGcmListenerService";
 
@@ -26,19 +27,20 @@ public class GcmListenerService extends com.google.android.gms.gcm.GcmListenerSe
 
     @Override
     public void onMessageReceived(String from, Bundle data) {
+
         if (!data.isEmpty()){
-            if((getString(R.string.gcm_defaultSenderId)).equals(from)) {
-                JSONObject jsonObject = null;
-                try {
-                    jsonObject = new JSONObject(data.getString(data.getString(EXTRA_DATA)));
-                    String weather = jsonObject.getString(EXTRA_WEATHER);
-                    String location = jsonObject.getString(EXTRA_LOCATION);
-                    String alert = String.format(
-                            getString(R.string.gcm_weather_alert), weather, location);
-                    sendNotification(alert);
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
+            String senderId = getString(R.string.gcm_defaultSenderId);
+            if (senderId.length() == 0) {
+                Toast.makeText(this, "SenderID string needs to be set", Toast.LENGTH_LONG).show();
+            }
+
+            if(senderId.equals(from)) {
+
+                String weather = data.getString(EXTRA_WEATHER);
+                String location = data.getString(EXTRA_LOCATION);
+                String alert = String.format(
+                        getString(R.string.gcm_weather_alert), weather, location);
+                sendNotification(alert);
             }
             Log.i(TAG, "Received: " + data.toString());
         }
