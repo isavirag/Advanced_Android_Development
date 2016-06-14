@@ -100,13 +100,6 @@ public class ForecastFragment extends Fragment implements LoaderManager.LoaderCa
     static final int COL_COORD_LAT = 7;
     static final int COL_COORD_LONG = 8;
 
-    @Override
-    public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
-        if(key.equals(getString(R.string.pref_location_status_key))){
-            updateEmptyView();
-        }
-    }
-
     /**
      * A callback interface that all activities containing this fragment must
      * implement. This mechanism allows activities to be notified of item
@@ -127,20 +120,6 @@ public class ForecastFragment extends Fragment implements LoaderManager.LoaderCa
         super.onCreate(savedInstanceState);
         // Add this line in order for this fragment to handle menu events.
         setHasOptionsMenu(true);
-    }
-
-    @Override
-    public void onResume() {
-        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getActivity());
-        sp.registerOnSharedPreferenceChangeListener(this);
-        super.onResume();
-    }
-
-    @Override
-    public void onPause() {
-        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getActivity());
-        sp.unregisterOnSharedPreferenceChangeListener(this);
-        super.onPause();
     }
 
     @Override

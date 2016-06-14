@@ -16,28 +16,9 @@
 package com.example.android.sunshine.app;
 
 import android.os.Bundle;
-<<<<<<< faee8d0d00b81125c496361ff2f9bc7909514741
-import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.view.Menu;
-import android.view.MenuItem;
-||||||| merged common ancestors
-import android.support.v7.app.ActionBarActivity;
-import android.view.Menu;
-import android.view.MenuItem;
-=======
-import android.support.v7.app.AppCompatActivity;
->>>>>>> Layout_base_changes - GridLayout
 
-
-<<<<<<< faee8d0d00b81125c496361ff2f9bc7909514741
 public class DetailActivity extends AppCompatActivity {
-||||||| merged common ancestors
-public class DetailActivity extends ActionBarActivity {
-=======
-public class DetailActivity extends AppCompatActivity  {
->>>>>>> Layout_base_changes - GridLayout
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,29 +45,6 @@ public class DetailActivity extends AppCompatActivity  {
                     .commit();
         }
     }
-<<<<<<< faee8d0d00b81125c496361ff2f9bc7909514741
-||||||| merged common ancestors
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.detail, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            startActivity(new Intent(this, SettingsActivity.class));
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
-=======
 
 //    @Override
 //    public boolean onCreateOptionsMenu(Menu menu) {
@@ -107,5 +65,4 @@ public class DetailActivity extends AppCompatActivity  {
 //        }
 //        return super.onOptionsItemSelected(item);
 //    }
->>>>>>> Layout_base_changes - GridLayout
 }

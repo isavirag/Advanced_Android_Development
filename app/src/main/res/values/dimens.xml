@@ -16,7 +16,6 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
 
     <dimen name="notification_large_icon_default">48dp</dimen>
-<<<<<<< faee8d0d00b81125c496361ff2f9bc7909514741
     <dimen name="forecast_detail_horizontal_padding">32dp</dimen>
 
     <!-- Icon Sizes -->
@@ -36,14 +35,4 @@
     <!-- Extra Padding -->
     <dimen name="detail_view_extra_padding">@dimen/abc_list_item_padding_horizontal_material</dimen>
 
-||||||| merged common ancestors
-=======
-    <dimen name="forecast_detail_horizontal_padding">32dp</dimen>
-
-    <!--Icon sizes-->
-    <dimen name="today_icon">96dp</dimen>
-
-    <!--Extra padding-->
-    <dimen name="detail_view_extra_padding">@dimen/abc_list_item_padding_horizontal_material</dimen>
->>>>>>> Layout_base_changes - GridLayout
 </resources>

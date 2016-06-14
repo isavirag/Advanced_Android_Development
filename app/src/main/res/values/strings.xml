@@ -145,68 +145,10 @@
     <string name="a11y_forecast_icon">Forecast icon: <xliff:g id="condition">%1$s</xliff:g></string>
     <string name="a11y_high_temp">High: <xliff:g id="high">%1$s</xliff:g></string>
     <string name="a11y_low_temp">Low: <xliff:g id="low">%1$s</xliff:g></string>
-<<<<<<< faee8d0d00b81125c496361ff2f9bc7909514741
-    <string name="a11y_humidity">Humidity: <xliff:g id="humidity">%1$s</xliff:g></string>
-    <string name="a11y_pressure">Barometric Pressure: <xliff:g id="pressure">%1$s</xliff:g></string>
-    <string name="a11y_wind">Wind speed and direction: <xliff:g id="wind">%1$s</xliff:g></string>
-||||||| merged common ancestors
-
-
-    <!--<string name="format_art_url" translatable="false">https://raw.githubusercontent.com/udacity/Sunshine-Version-2/sunshine_master/app/src/main/res/drawable-xxhdpi/art_<xliff:g id="description">%s</xliff:g>.png</string>-->
-
-    <!-- Label for the art pack preference [CHAR LIMIT=30] -->
-    <string name="pref_art_pack_label">Icon Pack</string>
-
-    <!-- Label for Sunshine option in art pack preference [CHAR LIMIT=25] -->
-    <string name="pref_art_pack_label_sunshine">Sunshine</string>
-
-    <!-- Label for cute dogs option in art pack preference [CHAR LIMIT=25] -->
-    <string name="pref_art_pack_label_cute_dogs">Cute dogs</string>
-
-    <!-- Key name for art pack unit preference in SharedPreferences [CHAR LIMIT=NONE] -->
-    <string name="pref_art_pack_key" translatable="false">art_pack</string>
-
-    <!-- Value in SharedPreferences for Sunshine art pack option [CHAR LIMIT=NONE] -->
-    <string name="pref_art_pack_sunshine" translatable="false">https://raw.githubusercontent.com/udacity/Sunshine-Version-2/sunshine_master/app/src/main/res/drawable-xxhdpi/art_%s.png</string>
-
-    <!-- Value in SharedPreferences for cute dogs art pack  option [CHAR LIMIT=NONE] -->
-    <string name="pref_art_pack_cute_dogs" translatable="false">https://raw.githubusercontent.com/udacity/sunshine_icons/master/Archive/Colored/art_%s.png</string>
-
-    <string name="gcm_weather_alert">Heads up: %1$s in %2$s!</string>
-
-    <!--&lt;!&ndash;From google developer console&ndash;&gt;-->
-    <!--<string name="gcm_defaultSenderId" translatable="false">836575131647</string>-->
-=======
     <string name="a11y_humidity">Humidity: <xliff:g id="humidity">%1$s</xliff:g></string>
     <string name="a11y_pressure">Barometric Pressure: <xliff:g id="pressure">%1$s</xliff:g></string>
     <string name="a11y_wind">Wind speed and direction: <xliff:g id="wind">%1$s</xliff:g></string>
 
-
-    <!--<string name="format_art_url" translatable="false">https://raw.githubusercontent.com/udacity/Sunshine-Version-2/sunshine_master/app/src/main/res/drawable-xxhdpi/art_<xliff:g id="description">%s</xliff:g>.png</string>-->
-
-    <!-- Label for the art pack preference [CHAR LIMIT=30] -->
-    <string name="pref_art_pack_label">Icon Pack</string>
-
-    <!-- Label for Sunshine option in art pack preference [CHAR LIMIT=25] -->
-    <string name="pref_art_pack_label_sunshine">Sunshine</string>
-
-    <!-- Label for cute dogs option in art pack preference [CHAR LIMIT=25] -->
-    <string name="pref_art_pack_label_cute_dogs">Cute dogs</string>
-
-    <!-- Key name for art pack unit preference in SharedPreferences [CHAR LIMIT=NONE] -->
-    <string name="pref_art_pack_key" translatable="false">art_pack</string>
-
-    <!-- Value in SharedPreferences for Sunshine art pack option [CHAR LIMIT=NONE] -->
-    <string name="pref_art_pack_sunshine" translatable="false">https://raw.githubusercontent.com/udacity/Sunshine-Version-2/sunshine_master/app/src/main/res/drawable-xxhdpi/art_%s.png</string>
-
-    <!-- Value in SharedPreferences for cute dogs art pack  option [CHAR LIMIT=NONE] -->
-    <string name="pref_art_pack_cute_dogs" translatable="false">https://raw.githubusercontent.com/udacity/sunshine_icons/master/Archive/Colored/art_%s.png</string>
-
-    <string name="gcm_weather_alert">Heads up: %1$s in %2$s!</string>
-
-    <!--&lt;!&ndash;From google developer console&ndash;&gt;-->
-    <!--<string name="gcm_defaultSenderId" translatable="false">836575131647</string>-->
->>>>>>> Layout_base_changes - GridLayout
 
     <!-- Weather Conditions -->
     <string name="condition_2xx">Storm</string>
@@ -270,6 +212,7 @@
 
     <!-- Used to form a severe weather alert that reads "Heads up: <weather> in <location>!" -->
     <string name="gcm_weather_alert">Heads up: %1$s in %2$s!</string>
-    // TODO: Get the SenderID from the Developer Console
-    <string name="gcm_defaultSenderId" translatable="false"></string>
+
+    <!--// TODO: Get the SenderID from the Developer Console-->
+    <!--<string name="gcm_defaultSenderId" translatable="false"></string>-->
 </resources>

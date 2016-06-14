@@ -501,7 +501,6 @@ public class Utility {
         }
         return context.getString(stringId);
     }
-<<<<<<< faee8d0d00b81125c496361ff2f9bc7909514741
 
     /**
      * Returns true if the network is available or about to become available.
@@ -552,51 +551,4 @@ public class Utility {
 
         return isConnected;
     }
-
-    /**
-     * Helper method to provide the icon resource id according to the weather condition id returned
-     * by the OpenWeatherMap call.
-     * @param weatherId from OpenWeatherMap API response
-     * @return resource id for the corresponding icon. -1 if no relation is found.
-     */
-    public static int getIconResourceForWeatherCondition(int weatherId) {
-        // Based on weather code data found at:
-        // http://bugs.openweathermap.org/projects/api/wiki/Weather_Condition_Codes
-        if (weatherId >= 200 && weatherId <= 232) {
-            return context.getString(R.string.format_art_url, "storm");
-        } else if (weatherId >= 300 && weatherId <= 321) {
-            return context.getString(R.string.format_art_url, "light_rain");
-        } else if (weatherId >= 500 && weatherId <= 504) {
-            return context.getString(R.string.format_art_url, "rain");
-        } else if (weatherId == 511) {
-            return context.getString(R.string.format_art_url, "snow");
-        } else if (weatherId >= 520 && weatherId <= 531) {
-            return context.getString(R.string.format_art_url, "rain");
-        } else if (weatherId >= 600 && weatherId <= 622) {
-            return context.getString(R.string.format_art_url, "snow");
-        } else if (weatherId >= 701 && weatherId <= 761) {
-            return context.getString(R.string.format_art_url, "fog");
-        } else if (weatherId == 761 || weatherId == 781) {
-            return context.getString(R.string.format_art_url, "storm");
-        } else if (weatherId == 800) {
-            return context.getString(R.string.format_art_url, "clear");
-        } else if (weatherId == 801) {
-            return context.getString(R.string.format_art_url, "light_clouds");
-        } else if (weatherId >= 802 && weatherId <= 804) {
-            return context.getString(R.string.format_art_url, "clouds");
-        }
-        return -1;
-    }
-||||||| merged common ancestors
-=======
-
-    public static boolean usingLocalGraphics(Context context) {
-
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        String sunshineArtPack = context.getString(R.string.pref_art_pack_key);
-        return prefs.getString(context.getString(R.string.pref_art_pack_key),
-                sunshineArtPack).equals(sunshineArtPack);
-
-    }
->>>>>>> Layout_base_changes - GridLayout
 }

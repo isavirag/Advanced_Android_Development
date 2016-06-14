@@ -16,13 +16,7 @@
  -->
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:state_activated="true"
-<<<<<<< faee8d0d00b81125c496361ff2f9bc7909514741
         android:drawable="@color/activated"/>
-||||||| merged common ancestors
-        android:drawable="@color/sunshine_light_blue" />
-=======
-        android:drawable="@color/primary_light" />
->>>>>>> Layout_base_changes - GridLayout
 
     <!-- Default, "just hangin' out" state. The base state also
          implements the ripple effect. -->

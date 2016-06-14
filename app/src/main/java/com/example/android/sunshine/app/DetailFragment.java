@@ -23,14 +23,8 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
-<<<<<<< faee8d0d00b81125c496361ff2f9bc7909514741
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
-||||||| merged common ancestors
-import android.support.v4.view.MenuItemCompat;
-=======
-import android.support.v7.app.AppCompatActivity;
->>>>>>> Layout_base_changes - GridLayout
 import android.support.v7.widget.ShareActionProvider;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
@@ -119,12 +113,6 @@ public class DetailFragment extends Fragment implements LoaderManager.LoaderCall
         View rootView = inflater.inflate(R.layout.fragment_detail, container, false);
         mIconView = (ImageView) rootView.findViewById(R.id.detail_icon);
         mDateView = (TextView) rootView.findViewById(R.id.detail_date_textview);
-<<<<<<< faee8d0d00b81125c496361ff2f9bc7909514741
-||||||| merged common ancestors
-        mFriendlyDateView = (TextView) rootView.findViewById(R.id.detail_day_textview);
-=======
-//        mFriendlyDateView = (TextView) rootView.findViewById(R.id.detail_day_textview);
->>>>>>> Layout_base_changes - GridLayout
         mDescriptionView = (TextView) rootView.findViewById(R.id.detail_forecast_textview);
         mHighTempView = (TextView) rootView.findViewById(R.id.detail_high_textview);
         mLowTempView = (TextView) rootView.findViewById(R.id.detail_low_textview);
@@ -137,7 +125,6 @@ public class DetailFragment extends Fragment implements LoaderManager.LoaderCall
         return rootView;
     }
 
-<<<<<<< faee8d0d00b81125c496361ff2f9bc7909514741
     private void finishCreatingMenu(Menu menu) {
         // Retrieve the share menu item
         MenuItem menuItem = menu.findItem(R.id.action_share);
@@ -146,53 +133,14 @@ public class DetailFragment extends Fragment implements LoaderManager.LoaderCall
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        if ( getActivity() instanceof DetailActivity ){
+        if (getActivity() instanceof DetailActivity) {
             // Inflate the menu; this adds items to the action bar if it is present.
             inflater.inflate(R.menu.detailfragment, menu);
             finishCreatingMenu(menu);
         }
-||||||| merged common ancestors
-    @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        inflater.inflate(R.menu.detailfragment, menu);
-
-        // Retrieve the share menu item
-        MenuItem menuItem = menu.findItem(R.id.action_share);
-
-        // Get the provider and hold onto it to set/change the share intent.
-        mShareActionProvider = (ShareActionProvider) MenuItemCompat.getActionProvider(menuItem);
-
-        // If onLoadFinished happens before this, we can go ahead and set the share intent now.
-        if (mForecast != null) {
-            mShareActionProvider.setShareIntent(createShareForecastIntent());
-        }
-=======
-    private void finishCreatingMenu(Menu menu) {
-        // Retrieve the share menu item
-        MenuItem menuItem = menu.findItem(R.id.action_share);
-        menuItem.setIntent(createShareForecastIntent());
-        }
-    @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        inflater.inflate(R.menu.detailfragment, menu);
-        finishCreatingMenu(menu);
-
-//        // Retrieve the share menu item
-//        MenuItem menuItem = menu.findItem(R.id.action_share);
-//
-//        // Get the provider and hold onto it to set/change the share intent.
-//        mShareActionProvider = (ShareActionProvider) MenuItemCompat.getActionProvider(menuItem);
-//
-//        // If onLoadFinished happens before this, we can go ahead and set the share intent now.
-//        if (mForecast != null) {
-//            mShareActionProvider.setShareIntent(createShareForecastIntent());
-//        }
->>>>>>> Layout_base_changes - GridLayout
     }
 
-    private Intent createShareForecastIntent() {
+    private Intent createShareForecastIntent(){
         Intent shareIntent = new Intent(Intent.ACTION_SEND);
         shareIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
         shareIntent.setType("text/plain");
@@ -240,7 +188,6 @@ public class DetailFragment extends Fragment implements LoaderManager.LoaderCall
             // Read weather condition ID from cursor
             int weatherId = data.getInt(COL_WEATHER_CONDITION_ID);
 
-<<<<<<< faee8d0d00b81125c496361ff2f9bc7909514741
             if ( Utility.usingLocalGraphics(getActivity()) ) {
                 mIconView.setImageResource(Utility.getArtResourceForWeatherCondition(weatherId));
             } else {
@@ -251,45 +198,16 @@ public class DetailFragment extends Fragment implements LoaderManager.LoaderCall
                         .crossFade()
                         .into(mIconView);
             }
-||||||| merged common ancestors
-            // Use weather art image
-//            mIconView.setImageResource(Utility.getArtResourceForWeatherCondition(weatherId));
-            Glide.with(this)
-                    .load(Utility.getArtUrlForWeatherCondition(getActivity(), weatherId))
-                    .error(Utility.getArtResourceForWeatherCondition(weatherId))
-                    .crossFade()
-                    .into(mIconView);
-=======
-
-            if ( Utility.usingLocalGraphics(getActivity()) ) {
-                mIconView.setImageResource(Utility.getArtResourceForWeatherCondition(weatherId));
-            } else {
-                Glide.with(this)
-                        .load(Utility.getArtUrlForWeatherCondition(getActivity(), weatherId))
-                        .error(Utility.getArtResourceForWeatherCondition(weatherId))
-                        .crossFade()
-                        .into(mIconView);
-            }
->>>>>>> Layout_base_changes - GridLayout
 
             // Read date from cursor and update views for day of week and date
             long date = data.getLong(COL_WEATHER_DATE);
-<<<<<<< faee8d0d00b81125c496361ff2f9bc7909514741
-            String dateText = Utility.getFullFriendlyDayString(getActivity(),date);
-||||||| merged common ancestors
-            String friendlyDateText = Utility.getDayName(getActivity(), date);
-            String dateText = Utility.getFormattedMonthDay(getActivity(), date);
-            mFriendlyDateView.setText(friendlyDateText);
-=======
 //            String friendlyDateText = Utility.getDayName(getActivity(), date);
             String dateText = Utility.getFullFriendlyDayString(getActivity(), date);
 //            mFriendlyDateView.setText(friendlyDateText);
->>>>>>> Layout_base_changes - GridLayout
             mDateView.setText(dateText);
 
             // Get description from weather condition ID
             String description = Utility.getStringForWeatherCondition(getActivity(), weatherId);
-
             mDescriptionView.setText(description);
             mDescriptionView.setContentDescription(getString(R.string.a11y_forecast, description));
 
@@ -322,19 +240,9 @@ public class DetailFragment extends Fragment implements LoaderManager.LoaderCall
 
         // Read pressure from cursor and update view
             float pressure = data.getFloat(COL_WEATHER_PRESSURE);
-<<<<<<< faee8d0d00b81125c496361ff2f9bc7909514741
             mPressureView.setText(getString(R.string.format_pressure, pressure));
             mPressureView.setContentDescription(getString(R.string.a11y_pressure, mPressureView.getText()));
             mPressureLabelView.setContentDescription(mPressureView.getContentDescription());
-            mPressureView.setText(getActivity().getString(R.string.format_pressure, pressure));
-||||||| merged common ancestors
-            mPressureView.setText(getActivity().getString(R.string.format_pressure, pressure));
-            mPressureView.setContentDescription(mPressureView.getText());
-=======
-            mPressureView.setText(getString(R.string.format_pressure, pressure));
-            mPressureView.setContentDescription(getString(R.string.a11y_pressure, mPressureView.getText()));
-            mPressureLabelView.setContentDescription(mPressureView.getContentDescription());
->>>>>>> Layout_base_changes - GridLayout
 
             // We still need this for the share intent
             mForecast = String.format("%s - %s - %s/%s", dateText, description, high, low);
@@ -344,7 +252,6 @@ public class DetailFragment extends Fragment implements LoaderManager.LoaderCall
                 mShareActionProvider.setShareIntent(createShareForecastIntent());
             }
         }
-<<<<<<< faee8d0d00b81125c496361ff2f9bc7909514741
         AppCompatActivity activity = (AppCompatActivity)getActivity();
         Toolbar toolbarView = (Toolbar) getView().findViewById(R.id.toolbar);
 
@@ -366,36 +273,6 @@ public class DetailFragment extends Fragment implements LoaderManager.LoaderCall
                 finishCreatingMenu(toolbarView.getMenu());
             }
         }
-||||||| merged common ancestors
-=======
-
-        //TODO: go over this code
-        AppCompatActivity activity = (AppCompatActivity) getActivity();
-        Toolbar toolbarView = (Toolbar) getView().findViewById(R.id.toolbar);
-
-        // We need to start the enter transition after the data has loaded
-        if(activity instanceof DetailActivity){
-            activity.supportStartPostponedEnterTransition();
-
-            if( null != toolbarView) {
-                activity.setSupportActionBar(toolbarView);
-
-                if(activity.getSupportActionBar() != null){
-                    activity.getSupportActionBar().setDefaultDisplayHomeAsUpEnabled(true);
-                    activity.getSupportActionBar().setDisplayShowTitleEnabled(false);
-                }
-            }
-        } else {
-          if (toolbarView != null) {
-              Menu menu = toolbarView.getMenu();
-              if(menu != null){
-                  menu.clear();
-              }
-              toolbarView.inflateMenu(R.menu.detailfragment);
-              finishCreatingMenu(toolbarView.getMenu());
-          }
-        }
->>>>>>> Layout_base_changes - GridLayout
     }
 
     @Override
